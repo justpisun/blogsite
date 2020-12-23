@@ -1,0 +1,131 @@
+/* ALL SITE */
+
+body {
+    background: url("../images/bg.png") center no-repeat;
+    background: cover;
+    background-attachment: fixed;
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+    margin: 0;
+    line-height: 1.6;
+}
+
+s body a {
+    text-decoration: none;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+
+/* CONTAINER */
+
+.container {
+    width: 100%;
+    max-width: 1350px;
+    margin: 0 auto;
+}
+
+
+/* HEADER */
+
+.header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    width: 100%;
+    line-height: 14px;
+    opacity: 0.5;
+    background-color: beige;
+}
+
+.header a {
+    color: black;
+    transition: color .2s linear;
+}
+
+.header nav a:hover {
+    color: gray;
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo {
+    transition: filter .2s;
+}
+
+.header__logo:hover {
+    filter: invert(0.5);
+}
+
+
+/* LOGO */
+
+.logo__img {
+    max-height: 100px;
+}
+
+
+/* NAV */
+
+.nav {
+    font-weight: 600;
+}
+
+.nav__link {
+    display: inline-block;
+    vertical-align: top;
+    text-decoration: none;
+    margin: 0 30px;
+}
+
+
+/* SIGN BTN */
+
+.header__btn_all {
+    display: flex;
+    flex-direction: row;
+}
+
+.header__btn_div {
+    text-align: center;
+    padding: 6px 15px;
+    border-radius: 3px;
+    border: 1px solid #000;
+    margin-right: 10px;
+    background-color: #fff;
+    color: #000;
+    text-decoration: none;
+    transition: background-color .2s, color .2s;
+}
+
+.header__btn_div:hover {
+    color: #fff;
+    background-color: #000;
+}
+
+.header__btn_div:last-child {
+    margin-right: 0;
+}
+
+.btn__shadow {
+    box-shadow: 3px 6px 9px #061e3756;
+}
