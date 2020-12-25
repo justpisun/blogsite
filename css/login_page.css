@@ -1,0 +1,78 @@
+/* Form */
+
+.login__form {
+    height: 655px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.divfor__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login__maintittle {
+    font-size: 25px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 12px;
+}
+
+.main__form {
+    padding: 40px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    height: auto;
+    background-color: #f5f5dc80;
+    box-shadow: 0 0 10px 0 #414141;
+    border-radius: 10px;
+    border: 1px solid #000;
+}
+
+#input__ {
+    border: 0;
+    width: 200px;
+    height: 35px;
+    background-color: #cacaca;
+    padding: 5px 10px;
+    size: 5;
+    margin-bottom: 10px;
+}
+
+.login__btn {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.login__a {
+    color: #000;
+    text-decoration: none;
+    transition: background-color .2s, color .2s;
+    border: 1px solid #000;
+    padding: 9px 80px;
+    background-color: #ffffff00;
+}
+
+.login__a:hover {
+    background-color: #000000b2;
+    color: #ffffff;
+}
+
+.create__acc {
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.create__acc_a {
+    color: #6c1b9b;
+    text-decoration: none;
+}
+
+.create__acc_a:hover {
+    text-decoration: underline;
+}
