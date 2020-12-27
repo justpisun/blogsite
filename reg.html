@@ -31,25 +31,77 @@
                 </div>
 
                 <nav class="nav">
-                    <a class="nav__link" href="#">Home</a>
-                    <a class="nav__link" href="#">Blog</a>
-                    <a class="nav__link" href="#">Profile</a>
-                    <a class="nav__link" href="#">Help</a>
+                    <a class="nav__link" href="#">Главная</a>
+                    <a class="nav__link" href="#">Блог</a>
+                    <a class="nav__link" href="#">Профиль</a>
+                    <a class="nav__link" href="#">Помощь</a>
                 </nav>
 
                 <div class="header__btn_all">
-                    <a href="#" class="header__btn_div btn__shadow">Sign up</a>
-                    <a href="#" class="header__btn_div btn__shadow">Register</a>
+                    <a href="login.html" class="header__btn_div shadow">Логин</a>
+                    <a href="reg.html" class="header__btn_div shadow">Регистрация</a>
                 </div>
             </div>
         </div>
     </header>
 
+    <form class="reg__form">
+        <div class="container">
+            <div class="divfor__form">
+                <div class="main__form shadow">
+                    <div class="reg__maintittle">
+                        Регистрация
+                    </div>
+                    <div class="all__inputs">
+                        <div class="leftandright__inputs">
+                            <div class="necessarily__text">
+                                Обязательно
+                            </div>
+                            <input type="text" id="input__" placeholder="Username">
+                            <input type="password" id="input__" placeholder="Password">
+                            <input type="password" id="input__" placeholder="Confirm Password">
+                            <input type="text" id="input__" placeholder="Email">
+                            <input type="text" id="input__" placeholder="Confirm Email">
+
+                        </div>
+                        <div class="leftandright__inputs">
+                            <div class="necessarily__text">
+                                Не обязательно
+                            </div>
+                            <input type="text" id="input__" placeholder="First Name">
+                            <input type="password" id="input__" placeholder="Second Name">
+                            <input type="text" id="input__" placeholder="Birthday">
+                            <input type="text" id="input__" placeholder="Country">
+                            <input type="password" id="input__" placeholder="City">
+                        </div>
+                    </div>
+                    <div class="accept__terms">
+                        <input type="checkbox" class="terms__checkbox"> I accept the
+                        <a class="accept__links" href="#">Terms of Use</a> & <a class="accept__links" href="#">Privacy Policy</a>.
+                    </div>
+                    <div class="reg__btn">
+                        <button class="reg__a">Зарегистрироваться</button>
+                    </div>
+                </div>
+                <!--Main Form-->
+            </div>
+            <!--Div For Form-->
+        </div>
+        <!--Container-->
+    </form>
+    <!--Form-->
+
     <footer class="footer">
-
-        © 2020 GitHub, Inc. Terms Privacy Security Status Help Contact GitHub Pricing API Training Blog About
-
-
+        <div class="container allfooter__text">
+            © 2020 TarasikCorporation.
+            <a href="#" class="footer__links">Конфиденциальность</a>
+            <a href="#" class="footer__links">Безопасность</a>
+            <a href="#" class="footer__links">Cтатус</a>
+            <a href="#" class="footer__links">Поиощь</a>
+            <a href="#" class="footer__links">Контакты</a>
+            <a href="#" class="footer__links">API</a>
+            <a href="#" class="footer__links">Про нас</a>
+        </div>
     </footer>
 
 </body>

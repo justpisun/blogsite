@@ -1,7 +1,7 @@
 /* Form */
 
 .login__form {
-    height: 655px;
+    height: 100%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -20,6 +20,9 @@
     color: #000;
     margin-bottom: 12px;
 }
+
+
+/* Main Form*/
 
 .main__form {
     padding: 40px 0px;
@@ -73,6 +76,20 @@
     text-decoration: none;
 }
 
-.create__acc_a:hover {
-    text-decoration: underline;
+.create__acc_a {
+    display: inline-block;
+}
+
+.create__acc_a::after {
+    content: '';
+    width: 0px;
+    height: 0.5px;
+    display: block;
+    background: #6c1b9b;
+    transition: 200ms;
+    margin-top: -3px;
+}
+
+.create__acc_a:hover::after {
+    width: 100%;
 }

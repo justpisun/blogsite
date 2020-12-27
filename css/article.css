@@ -1,0 +1,58 @@
+.all__article {
+    color: #000;
+    display: flex;
+    flex-direction: column;
+}
+
+.acrticle__tittle {
+    font-size: 45px;
+    text-align: center;
+}
+
+.tittle__img {
+    width: 1060px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.center__part {
+    margin-top: -8px;
+    padding-top: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #ffffffd8;
+    display: flex;
+    flex-direction: row;
+}
+
+.article__text {
+    width: 100%;
+    max-width: 920px;
+}
+
+.author_and_date {
+    width: 100%;
+    max-width: 200px;
+    margin-right: 20px;
+}
+
+.author {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.author__job {
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.publish__date {
+    font-size: 11px;
+    color: #000000b6;
+}
+
+.article__text_tittle {
+    font-weight: 700;
+    font-size: 16px;
+}
