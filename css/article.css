@@ -23,6 +23,7 @@
     background-color: #ffffffd8;
     display: flex;
     flex-direction: row;
+    margin-bottom: 20px;
 }
 
 .article__text {
@@ -55,4 +56,6 @@
 .article__text_tittle {
     font-weight: 700;
     font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
