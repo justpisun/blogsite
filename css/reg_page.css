@@ -87,6 +87,10 @@
     margin: 0;
 }
 
+.accept__terms {
+    font-size: 9px;
+}
+
 .accept__links {
     text-decoration: none;
 }

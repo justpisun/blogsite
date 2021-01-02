@@ -55,11 +55,6 @@ h6 {
 
 .header {
     font-size: 18px;
-    position: sticky;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
     width: 100%;
     line-height: 14px;
     background-color: #fcfcdf94;
