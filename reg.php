@@ -2,22 +2,15 @@
 <html>
 
 <head>
+    <?php require "./blocks/head.php"; ?>
     <title>Регистрация</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="css/style.css?423">
-    <link rel="stylesheet" href="css/reg_page.css?423">
-    
-    <link rel="icon" href="./images/ico.png" type="image/png">
-
-    <script src="https://kit.fontawesome.com/46e75e08cb.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/reg_page.css">
 </head>
 
 <body>
     <?php require "./blocks/header.php" ?>
 
-    <form class="reg__form">
+    <form class="reg__form" action="" method="post">
         <div class="container">
             <div class="divfor__form">
                 <div class="main__form shadow">
@@ -29,22 +22,21 @@
                             <div class="necessarily__text">
                                 Обязательно
                             </div>
-                            <input type="text" id="input__" placeholder="Username">
-                            <input type="password" id="input__" placeholder="Password">
-                            <input type="password" id="input__" placeholder="Confirm Password">
-                            <input type="text" id="input__" placeholder="Email">
-                            <input type="text" id="input__" placeholder="Confirm Email">
-
+                            <input class="input__" placeholder="Username">
+                            <input type="password" class="input__" placeholder="Password">
+                            <input type="password" class="input__" placeholder="Confirm Password">
+                            <input class="input__" placeholder="Email">
+                            <input class="input__" placeholder="Confirm Email">
                         </div>
                         <div class="leftandright__inputs">
                             <div class="necessarily__text">
                                 Не обязательно
                             </div>
-                            <input type="text" id="input__" placeholder="First Name">
-                            <input type="password" id="input__" placeholder="Second Name">
-                            <input type="text" id="input__" placeholder="Birthday">
-                            <input type="text" id="input__" placeholder="Country">
-                            <input type="password" id="input__" placeholder="City">
+                            <input class="input__" placeholder="First Name">
+                            <input class="input__" placeholder="Second Name">
+                            <input class="input__" placeholder="Birthday">
+                            <input class="input__" placeholder="Country">
+                            <input class="input__" placeholder="City">
                         </div>
                     </div>
                     <div class="accept__terms">
