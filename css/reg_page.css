@@ -54,7 +54,7 @@
     margin-right: 0px;
 }
 
-#input__ {
+.input__ {
     border: 0;
     width: 200px;
     height: 35px;
@@ -85,6 +85,10 @@
 
 .terms__checkbox {
     margin: 0;
+}
+
+.accept__terms {
+    font-size: 9px;
 }
 
 .accept__links {
