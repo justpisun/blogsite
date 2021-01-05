@@ -143,6 +143,14 @@ h6 {
     box-shadow: -3px 6px 9px #061e3756;
 }
 
+.backgound__opasity{
+    background-color: #00000000;
+}
+
+.no__border{
+    background-color: #00000000; 
+    border: 1px solid #00000031;
+}
 
 /* Footer*/
 

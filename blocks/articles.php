@@ -7,7 +7,7 @@
         <div class="article__maintext">
             <?php echo $row["text"]?>
         </div>
-        <a href="./article.php?id=<?php echo $row["id"]?>" class="link__arcticle">
+        <a href="/pages/article.php?id=<?php echo $row["id"]?>" class="link__arcticle">
             Читать далее...
         </a>
     </div>
