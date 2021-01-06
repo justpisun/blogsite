@@ -2,21 +2,28 @@
     <div class="container">
         <div class="header__inner">
             <div class="header__logo">
-                <a class="logo__text" href="index.php">
-                    <img class="logo__img" src="./images/logo.png" alt="Logo Image">
+                <a class="logo__text" href="/">
+                    <img class="logo__img" src="/images/logo.png" alt="Logo Image">
                 </a>
             </div>
 
-            <nav class="nav">
-                <a class="nav__link" href="index.php">Главная</a>
-                <a class="nav__link" href="#">Профиль</a>
-                <a class="nav__link" href="#">Помощь</a>
+            <nav class="nav">   
+            <a class="nav__link" href="/">Главная</a>
+                <a class="nav__link" href="#">Cтатус</a>
+                <a class="nav__link" href="#">Контакты</a>
             </nav>
-
-            <div class="header__btn_all">
-                <a href="login.php" class="header__btn_div shadow">Логин</a>
-                <a href="reg.php" class="header__btn_div shadow">Регистрация</a>
-            </div>
+            
+            <?php if(isset($_COOKIE['user_id'])): ?>
+                <div class="header__btn_all">
+                    <a href="/pages/profile.php" class="header__btn_div background__opacity">Профиль</a>
+                    <a href="/pages/exit.php" class="header__btn_div no__border">Выйти</a>
+                </div>
+            <?php else: ?>
+                <div class="header__btn_all">
+                    <a href="/pages/login.php" class="header__btn_div background__opacity">Логин</a>
+                    <a href="/pages/reg.php" class="header__btn_div no__border">Регистрация</a>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </header>

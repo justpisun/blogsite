@@ -1,7 +1,8 @@
 <?php
-    $mysql = new mysqli('localhost','root','','stalker');
-
+    require "./blocks/connect_to_db.php";
     $articlesContent = $mysql->query("SELECT * FROM `articles`");
+    $profile_info = $mysql->query("SELECT * FROM `users`");
+    $user = $profile_info->fetch_assoc();
 ?>
 
 <!DOCTYPE HTML>
@@ -10,7 +11,7 @@
 <head>
     <?php require "./blocks/head.php"; ?>
     <title>Главная</title>
-    <link rel="stylesheet" href="css/index.css">    
+    <link rel="stylesheet" href="/css/index.css">    
 </head>
 
 <body>
@@ -29,3 +30,5 @@
 </body>
 
 </html>
+
+<?php $mysql->close(); ?>

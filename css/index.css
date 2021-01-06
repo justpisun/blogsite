@@ -37,7 +37,7 @@
     margin-right: 10px;
 }
 
-.article__tittle {
+.article__title {
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 7px;
@@ -49,12 +49,12 @@
     margin-bottom: 3px;
 }
 
-.link__arcticle {
+.link__article {
     color: #000;
     font-weight: 700;
     text-decoration: none;
 }
 
-.link__arcticle:hover {
+.link__article:hover {
     text-decoration: underline;
 }
