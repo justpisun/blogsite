@@ -1,6 +1,6 @@
 <?php
     require "../blocks/connect_to_db.php";
-    $profile_info = $mysql->query("SELECT * FROM `users` WHERE `id` = ". $_GET["id"]);
+    $profile_info = $mysql->query("SELECT * FROM `users` WHERE `id` = ". $_COOKIE["user_id"]);
     $user = $profile_info->fetch_assoc();
 ?>
 
@@ -16,7 +16,7 @@
 <body>
     <?php require "../blocks/header.php" ?>
         <div class="container">
-            <form action="submit_changes.php?id=<?php echo $user["id"]?>" method="post">
+            <form action="submit_changes.php" method="post">
                 <div class="center">
                     <div class="profile">
                         <div class="left__profile">
@@ -32,7 +32,7 @@
                                 <input type="submit" value="Подтвердить изменение" class="header__btn_div color">
                             </div>
                             <div class="change">
-                                <a href="/pages/profile.php?id=<?php echo $user["id"]?>" class="header__btn_div color">Отмена</a>
+                                <a href="/pages/profile.php" class="header__btn_div color">Отмена</a>
                             </div>
                         </div>
                         <div class="right__profile">

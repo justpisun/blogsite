@@ -1,21 +1,13 @@
 <?php
     require "../blocks/connect_to_db.php";
 
-    $result = $mysql->query("SELECT * FROM `users` WHERE `id`= " . $_GET["id"]);
+    $result = $mysql->query("SELECT * FROM `users` WHERE `id`= " . $_COOKIE["user_id"]);
     $user = $result->fetch_assoc();
-
-    if($_COOKIE['usertime'] !== NULL){
-        if($_COOKIE['usertime'] != $user['login']){
-            header('Location: /');
-            exit();
-        }
-    }
-    else{
+    
+    if($_COOKIE['user_id'] === NULL){
         header('Location: /');
         exit();
     }
-
-    
 
     $login = filter_var(trim($_POST['login']),FILTER_SANITIZE_STRING);
 
@@ -35,52 +27,39 @@
 
 
     if(mb_strlen($login) <= 5 || mb_strlen($login) >= 25){
-            echo "<h1>Логин слишком маленький</h1>";
-            exit();
-        }
-    else{
-        if(mb_strlen($description) <= 8 || mb_strlen($description) >= 30){
-            echo "<h1>Описание слишком маленькое</h1>";
-            exit();
-        }
-        else{
-            if(mb_strlen($email) <= 7 || mb_strlen($email) >= 50){
-                echo "<h1>Email не существует</h1>";
-                exit();
-            }
-            else{
-                if(mb_strlen($first_name) <= 2 || mb_strlen($first_name) >= 30){
-                    echo "<h1>Имя не существует</h1>";
-                    exit();
-                }
-                else{
-                    if(mb_strlen($second_name) <= 2 || mb_strlen($second_name) >= 30){
-                        echo "<h1>Фамилия не совпадают</h1>";
-                        exit();
-                    }
-                    else{
-                        if(mb_strlen($birthday) != 10){
-                            echo "<h1>Введите дату правильно</h1>";
-                            exit();
-                        }
-                        else{
-                            if(mb_strlen($country) <= 4 || mb_strlen($country) >= 20){
-                                echo "<h1>Введите страну правильно</h1>";
-                                exit();
-                            }
-                            else{
-                                if(mb_strlen($city) <= 2 || mb_strlen($city) >= 40){
-                                    echo "<h1>Введите город правильно</h1>";
-                                    exit();
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        echo "<h1>Логин слишком маленький</h1>";
+        exit();
     }
-    $mysql->query("UPDATE users SET login = '$login', description = '$description', email = '$email', first_name = '$first_name', second_name = '$second_name', birthday = '$birthday', country = '$country', city = '$city' WHERE id = " . $_GET["id"] );
+    if(mb_strlen($description) <= 8 || mb_strlen($description) >= 30){
+        echo "<h1>Описание слишком маленькое</h1>";
+        exit();
+    }
+    if(mb_strlen($email) <= 7 || mb_strlen($email) >= 50){
+        echo "<h1>Email не существует</h1>";
+        exit();
+    }
+    if(mb_strlen($first_name) <= 2 || mb_strlen($first_name) >= 30){
+        echo "<h1>Имя не существует</h1>";
+        exit();
+    }
+    if(mb_strlen($second_name) <= 2 || mb_strlen($second_name) >= 30){
+        echo "<h1>Фамилия не совпадают</h1>";
+        exit();
+    }
+    if(mb_strlen($birthday) != 10){
+        echo "<h1>Введите дату правильно</h1>";
+        exit();
+    }
+    if(mb_strlen($country) <= 4 || mb_strlen($country) >= 20){
+        echo "<h1>Введите страну правильно</h1>";
+        exit();
+    }
+    if(mb_strlen($city) <= 2 || mb_strlen($city) >= 40){
+        echo "<h1>Введите город правильно</h1>";
+        exit();
+    }
 
-    header('Location: /pages/profile.php?id='. $_GET["id"]);
+    $mysql->query("UPDATE users SET login = '$login', description = '$description', email = '$email', first_name = '$first_name', second_name = '$second_name', birthday = '$birthday', country = '$country', city = '$city' WHERE id = " . $_COOKIE["user_id"] );
+
+    header('Location: /pages/profile.php');
 ?>

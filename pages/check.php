@@ -62,13 +62,12 @@
         echo "Пользователь уже есть (Этот логин или пароль уже используется)";
         exit();
     }
-    else{
-        $dateofreg = date('Y-m-d H:i:s');
-        $mysql->query("INSERT INTO `users` (`login`, `pass`, `email`,
-        `first_name`, `second_name`, `birthday`, `country`, `city`, `dateofreg`)
-        VALUES('$login', '$pass', '$email', '$first_name', '$second_name',
-        '$birthday', '$country', '$city', '$dateofreg')");
-    }
+    
+    $dateofreg = date('Y-m-d H:i:s');
+    $mysql->query("INSERT INTO `users` (`login`, `pass`, `email`,
+    `first_name`, `second_name`, `birthday`, `country`, `city`, `dateofreg`)
+    VALUES('$login', '$pass', '$email', '$first_name', '$second_name',
+    '$birthday', '$country', '$city', '$dateofreg')");
 
     header('Location: /');
 ?>

@@ -1,6 +1,6 @@
 <?php
     require "../blocks/connect_to_db.php";
-    $profile_info = $mysql->query("SELECT * FROM `users` WHERE `id` = ". $_GET["id"]);
+    $profile_info = $mysql->query("SELECT * FROM `users` WHERE `id` = ". $_COOKIE["user_id"]);
     $user = $profile_info->fetch_assoc();
 ?>
 
@@ -36,7 +36,7 @@
                             ?>
                         </div>
                         <div class="change">
-                            <a href="/pages/change_profile.php?id=<?php echo $user["id"]?>" class="header__btn_div color">Изменить</a>
+                            <a href="/pages/change_profile.php" class="header__btn_div color">Изменить</a>
                         </div>
                     </div>
                     <div class="right__profile">
