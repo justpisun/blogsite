@@ -22,7 +22,7 @@
             
             <?php if(isset($_COOKIE['usertime'])): ?>
                 <div class="header__btn_all">
-                    <a href="/pages/profile.php?id=<?php echo $user["id"]?>" class="header__btn_div backgound__opasity">Профиль</a>
+                    <a href="/pages/profile.php?id=<?php echo $user["id"]?>" class="header__btn_div background__opacity">Профиль</a>
                     <a href="/pages/exit.php" class="header__btn_div no__border">Выйти</a>
                 </div>
             <?php else: ?>

@@ -9,8 +9,8 @@
 
 <head>
     <?php require "../blocks/head.php" ?>
-    <title><?php echo $row["tittle"]?></title>
-    <link rel="stylesheet" href="../css/article.css">
+    <title><?php echo $row["title"]?></title>
+    <link rel="stylesheet" href="/css/article.css?1">
 </head>
 
 <body>
@@ -19,10 +19,10 @@
     <div class="all__article">
         <div class="small__container">
             <div class="top__part">
-                <div class="acrticle__tittle">
-                    <?php echo $row["tittle"]?>
+                <div class="article__title">
+                    <?php echo $row["title"]?>
                 </div>
-                <img src="<?php echo $row["full_img_link"]?>" class="tittle__img">
+                <img src="<?php echo $row["full_img_link"]?>" class="title__img">
             </div>
             <div class="center__part">
                 <div class="author_and_date">
@@ -50,7 +50,7 @@
             <div class="bottom__part">
                 <div class="write__comments">
                     <div class="upper">
-                        <img src="../images/user.png" class="user__img">
+                        <img src="/images/user.png" class="user__img">
                         <textarea id="textarea__comment" placeholder="Оставьте комментарий"></textarea>
                     </div>
                     <div class="under">
@@ -59,7 +59,7 @@
                 </div>
 
                 <div class="written__comments">
-                    <img src="../images/user.png" class="user__img">
+                    <img src="/images/user.png" class="user__img">
                     <div class="allwritten__comment">
                         <div class="authorof__comment">
                             Dron Gandon
@@ -71,7 +71,7 @@
                 </div>
 
                 <div class="written__comments">
-                    <img src="../images/user.png" class="user__img">
+                    <img src="/images/user.png" class="user__img">
                     <div class="allwritten__comment">
                         <div class="authorof__comment">
                             Sania Garmata
@@ -83,7 +83,7 @@
                 </div>
 
                 <div class="written__comments">
-                    <img src="../images/user.png" class="user__img">
+                    <img src="/images/user.png" class="user__img">
                     <div class="allwritten__comment">
                         <div class="authorof__comment">
                             Veniamin

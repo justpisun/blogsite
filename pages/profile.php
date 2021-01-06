@@ -10,7 +10,7 @@
 <head>
     <?php require "../blocks/head.php"; ?>
     <title>Профиль</title>
-    <link rel="stylesheet" href="../css/profile.css">
+    <link rel="stylesheet" href="/css/profile.css?1">
 </head>
 
 <body>
@@ -20,10 +20,10 @@
             <div class="center">
                 <div class="profile">
                     <div class="left__profile">
-                        <div class="tittle__profile">
+                        <div class="title__profile">
                             Пользователь сайта
                         </div>
-                        <img src="../images/user.png" class="user__img" alt="user-img">
+                        <img src="/images/user.png" class="user__img" alt="user-img">
                         <div class="full__name"><?php echo $user["first_name"]." ".$user["second_name"]?></div>
                         <div class="description">
                             <?php 
@@ -42,27 +42,27 @@
                     <div class="right__profile">
                         <table class="right__table">
                             <tr>
-                                <td class="tittle">Логин</td>
+                                <td class="title">Логин</td>
                                 <td><?php echo $user["login"]?></td>
                             </tr>
                             <tr>
-                                <td class="tittle">Почта</td>
+                                <td class="title">Почта</td>
                                 <td><?php echo $user["email"]?></td>
                             </tr>
                             <tr>
-                                <td class="tittle">Имя и фамилия</td>
+                                <td class="title">Имя и фамилия</td>
                                 <td><?php echo $user["first_name"]." ".$user["second_name"]?></td>
                             </tr>
                             <tr>
-                                <td class="tittle">День рождения</td>
+                                <td class="title">День рождения</td>
                                 <td><?php echo $user["birthday"]?></td>
                             </tr>
                             <tr>
-                                <td class="tittle">Страна</td>
+                                <td class="title">Страна</td>
                                 <td><?php echo $user["country"]?></td>
                             </tr>
                             <tr class="bottom__border">
-                                <td class="tittle">Город</td>
+                                <td class="title">Город</td>
                                 <td><?php echo $user["city"]?></td>
                             </tr>
                         </table>

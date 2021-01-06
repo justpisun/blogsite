@@ -70,7 +70,7 @@
                             }
                             else{
                                 if(mb_strlen($city) <= 2 || mb_strlen($city) >= 40){
-                                    echo "<h1>Введите страну правильно</h1>";
+                                    echo "<h1>Введите город правильно</h1>";
                                     exit();
                                 }
                             }
@@ -80,7 +80,6 @@
             }
         }
     }
-    mysqli_connect("localhost", "root", "", "stalker");
     $mysql->query("UPDATE users SET login = '$login', description = '$description', email = '$email', first_name = '$first_name', second_name = '$second_name', birthday = '$birthday', country = '$country', city = '$city' WHERE id = " . $_GET["id"] );
 
     header('Location: /pages/profile.php?id='. $_GET["id"]);

@@ -22,43 +22,32 @@
     $city = filter_var(trim($_POST['city']),FILTER_SANITIZE_STRING);
 
 
-    if(isset($_POST['accept']) && 
-    $_POST['accept'] == 'true') 
+    if(isset($_POST['accept']) && $_POST['accept'] == 'true') 
     {
-        $accept = true;
-
         if(mb_strlen($login) <= 5 || mb_strlen($login) >= 25){
             echo "<h1>Логин слишком маленький</h1>";
             exit();
         }
-        else{
-            if(mb_strlen($pass) <= 8 || mb_strlen($pass) >= 30){
-                echo "<h1>Пароль слишком маленький</h1>";
-                exit();
-            }
-            else{
-                if($pass != $confirm_pass){
-                    echo "<h1>Пароли не совпадают</h1>";
-                    exit();
-                }
-                else{
-                    if(mb_strlen($email) <= 7 || mb_strlen($email) >= 50){
-                        echo "<h1>Email не существует</h1>";
-                        exit();
-                    }
-                    else{
-                        if($email != $confirm_email){
-                            echo "<h1>Email не совпадают</h1>";
-                            exit();
-                        }
-                    }
-                }
-            }
+        if(mb_strlen($pass) <= 8 || mb_strlen($pass) >= 30){
+            echo "<h1>Пароль слишком маленький</h1>";
+            exit();
+        }
+        if($pass != $confirm_pass){
+            echo "<h1>Пароли не совпадают</h1>";
+            exit();
+        }
+        if(mb_strlen($email) <= 7 || mb_strlen($email) >= 50){
+            echo "<h1>Email не существует</h1>";
+            exit();
+        }
+        if($email != $confirm_email){
+            echo "<h1>Email не совпадают</h1>";
+            exit();
         }
     }
     else
     {
-        echo "<h1>Принимите соглашение!</h1>";
+        echo "<h1>Приймите соглашение!</h1>";
         exit();
     }	
     
@@ -70,7 +59,7 @@
     $user = $result->fetch_assoc();
 
     if($user != NULL){
-        echo "Пользователь уже есть (Этот логин или пароль уже используеться)";
+        echo "Пользователь уже есть (Этот логин или пароль уже используется)";
         exit();
     }
     else{

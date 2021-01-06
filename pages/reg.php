@@ -4,7 +4,7 @@
 <head>
     <?php require "../blocks/head.php"; ?>
     <title>Регистрация</title>
-    <link rel="stylesheet" href="../css/reg_page.css">
+    <link rel="stylesheet" href="/css/reg_page.css?1">
 </head>
 
 <body>
@@ -14,7 +14,7 @@
         <div class="container">
             <div class="divfor__form">
                 <div class="main__form shadow">
-                    <div class="reg__maintittle">
+                    <div class="reg__maintitle">
                         Регистрация
                     </div>
                     <div class="all__inputs">

@@ -10,7 +10,7 @@
 <head>
     <?php require "../blocks/head.php"; ?>
     <title>Профиль</title>
-    <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="/css/profile.css?1">
 </head>
 
 <body>
@@ -20,7 +20,7 @@
                 <div class="center">
                     <div class="profile">
                         <div class="left__profile">
-                            <div class="tittle__profile">
+                            <div class="title__profile">
                                 Пользователь сайта
                             </div>
                             <img src="../images/user.png" class="user__img" alt="user-img">
@@ -38,30 +38,30 @@
                         <div class="right__profile">
                             <table class="right__table">
                                 <tr>
-                                    <td class="tittle">Логин</td>
+                                    <td class="title">Логин</td>
                                     <td><input name="login" id="login" class = "input_profile" value="<?php echo $user['login']?>" placeholder="Логин"></td>
                                 </tr>
                                 <tr>
-                                    <td class="tittle">Почта</td>
+                                    <td class="title">Почта</td>
                                     <td><input name="email" id="email" class = "input_profile" value="<?php echo $user['email']?>" placeholder="Почта"></td>
                                 </tr>
                                 <tr>
-                                    <td class="tittle">Имя и фамилия</td>
+                                    <td class="title">Имя и фамилия</td>
                                     <td>
                                         <input name="first_name" id="login" value="<?php echo $user['first_name']?>" class = "input_profile margin top" placeholder="Имя">
                                         <input name="second_name" id="login" value="<?php echo $user['second_name']?>" class = "input_profile margin" placeholder="Фамилия">
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="tittle">День рождения</td>
+                                    <td class="title">День рождения</td>
                                     <td><input name="birthday" id="birthday" value="<?php echo $user['birthday']?>" class = "input_profile" placeholder="День Рождения"></td>
                                 </tr>
                                 <tr>
-                                    <td class="tittle">Страна</td>
+                                    <td class="title">Страна</td>
                                     <td><input name="country" id="country" value="<?php echo $user['country']?>" class = "input_profile" placeholder="Страна"></td>
                                 </tr>
                                 <tr class="bottom__border">
-                                    <td class="tittle">Город</td>
+                                    <td class="title">Город</td>
                                     <td><input name="city" id="city" value="<?php echo $user['city']?>" class = "input_profile" placeholder="Город"></td>
                                 </tr>
                             </table>

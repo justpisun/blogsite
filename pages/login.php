@@ -4,7 +4,7 @@
 <head>
     <?php require "../blocks/head.php"; ?>
     <title>Авторизация</title>
-    <link rel="stylesheet" href="../css/login_page.css">
+    <link rel="stylesheet" href="/css/login_page.css?1">
 </head>
 
 <body>
@@ -14,7 +14,7 @@
         <div class="container">
             <div class="divfor__form">
                 <div class="main__form shadow">
-                    <div class="login__maintittle">
+                    <div class="login__maintitle">
                         Вход в аккаунт
                     </div>
                     <input class="input__" placeholder="Username" name="login" id="login">
