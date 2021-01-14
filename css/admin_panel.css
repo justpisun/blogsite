@@ -1,0 +1,66 @@
+.margin_right{
+    text-align: center;
+    align-self: center;
+    margin-right: 0px;
+}
+
+.change_btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    padding-left: 10px;
+    border-left: 1px solid #000;
+    flex-direction: column;
+}
+
+.margin_bottom_add{
+    margin-bottom: 5px;
+}
+
+.btns{
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bodyphp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.article{
+    margin: 0 auto;
+}
+
+.full_text {
+    display: flex;
+    border-radius: 10px;
+    border: 1px solid #303030;
+    background-color: #f5f5dc80;
+    height: 100%;
+    width: 70%;
+    flex-direction: row;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.form_change_article{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.form_create_article{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center; 
+}

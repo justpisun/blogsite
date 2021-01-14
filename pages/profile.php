@@ -11,6 +11,11 @@
     <?php require "../blocks/head.php"; ?>
     <title>Профиль</title>
     <link rel="stylesheet" href="/css/profile.css?1">
+    <?php 
+        if($user["admin"] == 1){
+            echo "<link rel=\"stylesheet\" href=\"/css/admin.css?1\">";
+        }
+    ?>
 </head>
 
 <body>
@@ -24,7 +29,20 @@
                             Пользователь сайта
                         </div>
                         <img src="/images/user.png" class="user__img" alt="user-img">
-                        <div class="full__name"><?php echo $user["first_name"]." ".$user["second_name"]?></div>
+                        <div class="full__name">
+                            <?php
+                                if($user["first_name"] == "" && $user["second_name"] == ""){
+                                    echo $user["login"];
+                                }
+                                else{
+                                    echo $user["first_name"]." ".$user["second_name"];
+                                }
+                                
+                                if($user["admin"] == 1){
+                                    echo "[ADMIN]";
+                                }
+                            ?>
+                        </div>
                         <div class="description">
                             <?php 
                                 if($user["description"]==""){
@@ -36,6 +54,11 @@
                             ?>
                         </div>
                         <div class="change">
+                        <?php 
+                            if($user["admin"] == 1){
+                                echo "<a href=\"/pages/admin_panel.php\" class=\"header__btn_div color\">Админ панель</a>";
+                            }
+                        ?>
                             <a href="/pages/change_profile.php" class="header__btn_div color">Изменить</a>
                         </div>
                     </div>
