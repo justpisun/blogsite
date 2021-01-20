@@ -1,5 +1,14 @@
 <?php 
     require "../blocks/connect_to_db.php";
+
+    $userResult = $mysql->query("SELECT * FROM `users` WHERE `id` = ". $_COOKIE['user_id']);
+    $user = $userResult->fetch_assoc();
+
+    if($_COOKIE['user_id'] === NULL || $user["admin"] != 1){
+        header('Location: /');
+        exit();
+    }
+    
     $articlesContent = $mysql->query("SELECT * FROM `articles`");
     $row = $articlesContent->fetch_assoc();
 
@@ -18,10 +27,14 @@
 </head>
 
 <body class="bodyphp">
-    <form class="form_create_article" action = "/pages/confirm_create_article.php" method="post">
+    <form class="form_create_article" action = "/pages/confirm_create_article.php" enctype='multipart/form-data' method="post">
         <article class="article">
-            <img src="" class="article__img" alt="Article Image">
+        <div class="img">
+            <input type='file' id="input_file1" name='uploads[]' /><br />
+            <input type='file' id="input_file2" name='uploads[]' />
+        </div>
             <div class="article__block">
+            
                 <div class="article__title">
                     <input name="title" id="title" class="input_profile" placeholder="Заголовок">
                 </div>

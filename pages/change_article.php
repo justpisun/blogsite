@@ -1,5 +1,14 @@
 <?php 
     require "../blocks/connect_to_db.php";
+
+    $userResult = $mysql->query("SELECT * FROM `users` WHERE `id` = ". $_COOKIE['user_id']);
+    $user = $userResult->fetch_assoc();
+
+    if($_COOKIE['user_id'] === NULL || $user["admin"] != 1){
+        header('Location: /');
+        exit();
+    }
+    
     $articlesContent = $mysql->query("SELECT * FROM `articles` WHERE `id` = ". $_GET["id"]);
     $row = $articlesContent->fetch_assoc();
 
@@ -20,7 +29,7 @@
 <body class="bodyphp">
     <form class="form_change_article" action = "/pages/confirm_change_article.php?id=<?php echo $row["id"]?>" method="post">
         <article class="article">
-            <img src="<?php echo $row["img_link"]?>" class="article__img" alt="Article Image">
+            <img src="/images/blog/article_img<?php echo $row["id"]?>.jpg" class="article__img" alt="Article Image">
             <div class="article__block">
                 <div class="article__title">
                     <input name="title" id="title" class="input_profile" value="<?php echo $row['title']?>" placeholder="Заголовок">

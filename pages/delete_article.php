@@ -1,5 +1,14 @@
 <?php 
     require "../blocks/connect_to_db.php";
+
+    $userResult = $mysql->query("SELECT * FROM `users` WHERE `id` = ". $_COOKIE['user_id']);
+    $user = $userResult->fetch_assoc();
+
+    if($_COOKIE['user_id'] === NULL || $user["admin"] != 1){
+        header('Location: /');
+        exit();
+    }
+
     $articlesContent = $mysql->query("SELECT * FROM `articles` WHERE `id` = ". $_GET["id"]);
     $row = $articlesContent->fetch_assoc();
     require "../blocks/admin_check.php";

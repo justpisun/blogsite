@@ -152,3 +152,11 @@
 .you_r_rate{
     font-size: 12px;
 }
+
+.rate a{
+    color: #000;
+}
+
+.rate a:hover{
+    color: #1f5675;
+}

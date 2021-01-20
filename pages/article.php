@@ -1,13 +1,18 @@
 <?php 
     require "../blocks/connect_to_db.php";
     $articlesContent = $mysql->query("SELECT * FROM `articles` WHERE `id` = ". $_GET["id"]);
-    $comments = $mysql->query("SELECT * FROM `comments` WHERE `id_of_article` = ". $_GET["id"]);
+    $commentsResult = $mysql->query("SELECT * FROM `comments` WHERE `articleId` = ". $_GET["id"]);
+
+    if(isset($_COOKIE["user_id"])){
+        $profile_info = $mysql->query("SELECT * FROM `users` WHERE `id` = ". $_COOKIE["user_id"]);
+        $user = $profile_info->fetch_assoc();
+    }
 
     $row = $articlesContent->fetch_assoc();
     if(isset($_COOKIE["user_id"])){
-        $rate = $mysql->query("SELECT * FROM `rates` WHERE `id_of_article` = ". $_GET["id"] . " AND `id_of_user` = ". $_COOKIE["user_id"]);
+        $ratesResult = $mysql->query("SELECT * FROM `rates` WHERE `articleId` = ". $_GET["id"] . " AND `userId` = ". $_COOKIE["user_id"]);
 
-        $rate_array = $rate->fetch_assoc();
+        $rates = $ratesResult->fetch_assoc();
     }
 ?>
 
@@ -30,7 +35,7 @@
                 <div class="article__title">
                     <?php echo $row["title"]?>
                 </div>
-                <img src="<?php echo $row["full_img_link"]?>" class="title__img">
+                <img src="/images/blog/article_img<?php echo $row["id"]?>__title.jpg" class="title__img">
             </div>
             <div class="center__part">
                 <div class="author_and_date">
@@ -39,58 +44,47 @@
                     <div class="publish__date">Published <?php echo $row["date"]?></div>
                     <div class="rate">
                         <?php
+                            $articleId = $row["id"];
                             if(isset($_COOKIE["user_id"])){
-                                $count = $mysql->query("SELECT COUNT(rate) FROM rates WHERE `id_of_article` = ". $_GET["id"]);
-                                $count = $count->fetch_assoc();
-                                $id_of_article = $row["id"];
-                                if($count["COUNT(rate)"] == 0){
+                                $avgMysql = $mysql->query("SELECT AVG(rate) FROM rates WHERE `articleId` = ". $_GET["id"]);
+                                $avg_array = $avgMysql->fetch_assoc();
+                                $avg = round($avg_array["AVG(rate)"], 2);
+
+                                $userMysql = $mysql->query("SELECT * FROM rates WHERE `articleId` = ". $_GET["id"] . " AND `userId` = ". $_COOKIE["user_id"]);
+                                $userResult = $userMysql->fetch_assoc();
+
+                                if(isset($userResult) == NULL){
                                     for($i = 1; $i <= 5; $i++){
-                                        echo "<a href=\"rate.php?id_of_article=$id_of_article&id=$i\"><i class=\"far fa-star\"></i></a>";
+                                        echo "<a href=\"rate.php?articleId=$articleId&id=$i\"><i class=\"far fa-star\"></i></a>";
                                     }
                                 }
                                 else{
-                                    $avgmysql = $mysql->query("SELECT AVG(rate) FROM rates WHERE `id_of_article` = ". $_GET["id"]);
-
-                                    $avg_array = $avgmysql->fetch_assoc();
-
-                                    $avg = round($avg_array["AVG(rate)"]);
-
-                                    for($i = 1; $i <= $avg; $i++){
-                                        echo "<a href=\"rate.php?id_of_article=$id_of_article&id=$i\"><i class=\"fas fa-star\"></i></a>";
+                                    for($i = 1; $i <= $userResult["rate"]; $i++){
+                                    echo "<a href=\"rate.php?articleId=$articleId&id=$i\"><i class=\"fas fa-star\"></i></a>";
                                     }
                                     $l = $i;
                                     for($i = $l; $i <= 5; $i++){
-                                        echo "<a href=\"rate.php?id_of_article=$id_of_article&id=$i\"><i class=\"far fa-star\"></i></a>";
+                                        echo "<a href=\"rate.php?articleId=$articleId&id=$i\"><i class=\"far fa-star\"></i></a>";
                                     }
                                 }
-                                if(isset($rate_array)){
-                                    echo "<div class=\"you_r_rate\"> Вы уже проголосовали, ваша оценка: " . $rate_array["rate"]. "</div>";
-                                }
+
+                                echo "<div class=\"you_r_rate\"> Средняя оценка: " . $avg . "</div>";
                             }
                             else{
-                                $count = $mysql->query("SELECT COUNT(rate) FROM rates WHERE `id_of_article` = ". $_GET["id"]);
-                                $count = $count->fetch_assoc();
-                                $id_of_article = $row["id"];
-                                if($count["COUNT(rate)"] == 0){
-                                    for($i = 1; $i <= 5; $i++){
-                                        echo "<i class=\"far fa-star\"></i>";
-                                    }
+                                $avgmysql = $mysql->query("SELECT AVG(rate) FROM rates WHERE `articleId` = ". $_GET["id"]);
+
+                                $avg_array = $avgmysql->fetch_assoc();
+
+                                $avg = round($avg_array["AVG(rate)"]);
+
+                                for($i = 1; $i <= $avg; $i++){
+                                    echo "<i class=\"fas fa-star\"></i>";
                                 }
-                                else{
-                                    $avgmysql = $mysql->query("SELECT AVG(rate) FROM rates WHERE `id_of_article` = ". $_GET["id"]);
-
-                                    $avg_array = $avgmysql->fetch_assoc();
-
-                                    $avg = round($avg_array["AVG(rate)"]);
-
-                                    for($i = 1; $i <= $avg; $i++){
-                                        echo "<i class=\"fas fa-star\"></i>";
-                                    }
-                                    $l = $i;
-                                    for($i = $l; $i <= 5; $i++){
-                                        echo "<i class=\"far fa-star\"></i>";
-                                    }
+                                $l = $i;
+                                for($i = $l; $i <= 5; $i++){
+                                    echo "<i class=\"far fa-star\"></i>";
                                 }
+
                                 echo "<div class=\"you_r_rate\">Зарегистрируйтесь, что б ставить оценки</div>";
                             }
                         ?>
@@ -112,7 +106,7 @@
                                 <textarea name="textarea__comment" id="textarea__comment" placeholder="Оставьте комментарий"></textarea>
                             </div>
                             <div class="under">
-                                <input type="submit" class="comment__button">
+                                <input type="submit" class="comment__button header__btn_div">
                             </div>
                         </form>
                     <?php else:?>
@@ -121,7 +115,7 @@
                 </div>
 
                 <?php
-                    while($array_of_comments = $comments->fetch_assoc())
+                    while($comments = $commentsResult->fetch_assoc())
                     {
                         require "../blocks/comment.php";
                     }

@@ -113,3 +113,18 @@
     resize: none;
     border-radius: 7px;
 }
+
+.img{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#input_file1{
+    margin-top: 50px;
+    margin-left: 20px;
+}
+
+#input_file2{
+    margin-left: 20px;
+}
