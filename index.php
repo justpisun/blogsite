@@ -1,8 +1,10 @@
 <?php
     require "./blocks/connect_to_db.php";
     $articlesContent = $mysql->query("SELECT * FROM `articles`");
-    $profile_info = $mysql->query("SELECT * FROM `users`");
-    $user = $profile_info->fetch_assoc();
+    if(isset($_COOKIE["user_id"])){
+        $profile_info = $mysql->query("SELECT * FROM `users` WHERE `id` = ". $_COOKIE["user_id"]);
+        $user = $profile_info->fetch_assoc();
+    }
 ?>
 
 <!DOCTYPE HTML>
@@ -20,7 +22,7 @@
         <section class="section">
             <?php
                 while($row = $articlesContent->fetch_assoc())
-                {
+                {   
                     require "./blocks/articles.php";
                 }
             ?>

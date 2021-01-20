@@ -1,24 +1,14 @@
 <?php 
     $login = filter_var(trim($_POST['login']),FILTER_SANITIZE_STRING);
-
     $pass = filter_var(trim($_POST['pass']),FILTER_SANITIZE_STRING);
-
     $confirm_pass = filter_var(trim($_POST['confirm_pass']),FILTER_SANITIZE_STRING);
-
     $email = filter_var(trim($_POST['email']),FILTER_SANITIZE_STRING);
-
     $confirm_email = filter_var(trim($_POST['confirm_email']),FILTER_SANITIZE_STRING);
 
-
-
     $first_name = filter_var(trim($_POST['first_name']),FILTER_SANITIZE_STRING);
-
     $second_name = filter_var(trim($_POST['second_name']),FILTER_SANITIZE_STRING);
-
     $birthday = filter_var(trim($_POST['birthday']),FILTER_SANITIZE_STRING);
-
     $country = filter_var(trim($_POST['country']),FILTER_SANITIZE_STRING);
-
     $city = filter_var(trim($_POST['city']),FILTER_SANITIZE_STRING);
 
 

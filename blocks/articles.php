@@ -1,5 +1,5 @@
 <article class="article">
-    <img src="<?php echo $row["img_link"]?>" class="article__img" alt="Article Image">
+    <img src="/images/blog/article_img<?php echo $row["id"]?>.jpg" class="article__img" alt="Article Image">
     <div class="article__block">
         <div class="article__title">
             <?php echo $row["title"]?>

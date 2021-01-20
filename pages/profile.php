@@ -52,11 +52,6 @@
                             ?>
                         </div>
                         <div class="change">
-                        <?php 
-                            if($user["admin"] == 1){
-                                echo "<a href=\"/pages/admin_panel.php\" class=\"header__btn_div color\">Админ панель</a>";
-                            }
-                        ?>
                             <a href="/pages/change_profile.php" class="header__btn_div color">Изменить</a>
                         </div>
                     </div>
