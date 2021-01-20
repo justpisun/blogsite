@@ -11,11 +11,9 @@
     <?php require "../blocks/head.php"; ?>
     <title>Профиль</title>
     <link rel="stylesheet" href="/css/profile.css?1">
-    <?php 
-        if($user["admin"] == 1){
-            echo "<link rel=\"stylesheet\" href=\"/css/admin.css?1\">";
-        }
-    ?>
+    <?php if($user["admin"] == 1):?>
+        <link rel="stylesheet" href="/css/admin.css?1">
+    <?php endif;?>
 </head>
 
 <body>

@@ -25,38 +25,56 @@
 
     $city = filter_var(trim($_POST['city']),FILTER_SANITIZE_STRING);
 
-
     if(mb_strlen($login) <= 5 || mb_strlen($login) >= 25){
         echo "<h1>Логин слишком маленький</h1>";
         exit();
     }
-    if(mb_strlen($description) <= 8 || mb_strlen($description) >= 30){
-        echo "<h1>Описание слишком маленькое</h1>";
-        exit();
+
+    if(mb_strlen($description) != 0){
+        if(mb_strlen($description) <= 8 || mb_strlen($description) >= 30){
+            echo "<h1>Описание слишком маленькое или слишком большое</h1>";
+            exit();
+        }
     }
-    if(mb_strlen($email) <= 7 || mb_strlen($email) >= 50){
-        echo "<h1>Email не существует</h1>";
-        exit();
+    
+    if(mb_strlen($email) != 0){
+        if(mb_strlen($email) <= 7 || mb_strlen($email) >= 50){
+            echo "<h1>Email не существует</h1>";
+            exit();
+        }
     }
-    if(mb_strlen($first_name) <= 2 || mb_strlen($first_name) >= 30){
-        echo "<h1>Имя не существует</h1>";
-        exit();
+
+    if(mb_strlen($first_name) != 0){
+        if(mb_strlen($first_name) <= 2 || mb_strlen($first_name) >= 30){
+            echo "<h1>Имя не существует</h1>";
+            exit();
+        }
     }
-    if(mb_strlen($second_name) <= 2 || mb_strlen($second_name) >= 30){
-        echo "<h1>Фамилия не совпадают</h1>";
-        exit();
+
+    if(mb_strlen($second_name) != 0){
+        if(mb_strlen($second_name) <= 2 || mb_strlen($second_name) >= 30){
+            echo "<h1>Фамилия не совпадают</h1>";
+            exit();
+        }
     }
-    if(mb_strlen($birthday) != 10){
+
+    if(mb_strlen($birthday) != 10 && mb_strlen($birthday) != 0){
         echo "<h1>Введите дату правильно</h1>";
         exit();
     }
-    if(mb_strlen($country) <= 4 || mb_strlen($country) >= 20){
-        echo "<h1>Введите страну правильно</h1>";
-        exit();
+
+    if(mb_strlen($country) != 0){
+        if(mb_strlen($country) <= 4 || mb_strlen($country) >= 20){
+            echo "<h1>Введите страну правильно</h1>";
+            exit();
+        }
     }
-    if(mb_strlen($city) <= 2 || mb_strlen($city) >= 40){
-        echo "<h1>Введите город правильно</h1>";
-        exit();
+
+    if(mb_strlen($city) != 0){
+        if(mb_strlen($city) <= 2 || mb_strlen($city) >= 40){
+            echo "<h1>Введите город правильно</h1>";
+            exit();
+        }
     }
 
     $mysql->query("UPDATE users SET login = '$login', description = '$description', email = '$email', first_name = '$first_name', second_name = '$second_name', birthday = '$birthday', country = '$country', city = '$city' WHERE id = " . $_COOKIE["user_id"] );

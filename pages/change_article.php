@@ -11,10 +11,10 @@
 
 <head>
     <?php require "../blocks/head.php"; ?>
-    <title>Админ панель</title>
+    <title>Поменять статью</title>
     <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/css/admin_panel.css">
     <link rel="stylesheet" href="/css/profile.css?1">
+    <link rel="stylesheet" href="/css/admin_panel.css?1">
 </head>
 
 <body class="bodyphp">
@@ -26,14 +26,17 @@
                     <input name="title" id="title" class="input_profile" value="<?php echo $row['title']?>" placeholder="Заголовок">
                 </div>
                 <div class="article__maintext">
-                    <textarea style="width:700px; height:130px;" name="text" id="text" class="input_profile" placeholder="Короткий текст про статью"><?php echo $row['text']?></textarea>
+                    <textarea name="text" id="text" class="input_profile" placeholder="Короткий текст про статью"><?php echo $row['text']?></textarea>
                 </div>
             </div>
         </article>
         <div class="full_text">
-            <textarea style="width:100%; height:71vh;" name="full_text" id="full_text" class="input_profile" placeholder="Полный текст про статью"><?php echo $row['full_text']?></textarea>
+            <textarea name="full_text" id="full_text" class="input_profile" placeholder="Полный текст про статью"><?php echo $row['full_text']?></textarea>
         </div>
-        <input type="submit" class="header__btn_div margin_right" placeholder="Изменить">
+        <div class="change_article_buttons">
+            <input type="submit" class="header__btn_div margin_right margin_bottom" placeholder="Изменить">
+            <a href="/pages/admin_panel.php" class="header__btn_div margin_right">Назад</a>
+        </div>  
     </form>
 </body>
 

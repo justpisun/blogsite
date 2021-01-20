@@ -111,9 +111,16 @@
 }
 
 .comment__button {
+    font-family: 'Raleway', sans-serif;
     margin: 10px;
     padding: 5px 30px;
     border-radius: 3px solid;
+}
+
+.left__comments{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .written__comments {
@@ -125,6 +132,7 @@
 
 .written__comments:last-child {
     margin-bottom: 5px;
+    justify-self: end;
 }
 
 .written__comments:first-child{
@@ -139,4 +147,8 @@
 .comment__text {
     font-size: 13px;
     margin-top: 3px;
+}
+
+.you_r_rate{
+    font-size: 12px;
 }
